@@ -1,7 +1,10 @@
 
+import { Column, DataGrid } from 'devextreme-react/data-grid';
 import React, { useEffect, useState } from 'react';
 
 export const ProductList = () => {
+    const priceFormat = { style: 'currency', currency: 'CAD', useGrouping: true, minimumSignificantDigits: 3 };
+
     const [ products, setProducts ] = useState( [] );
 
     useEffect( () => {
@@ -17,14 +20,16 @@ export const ProductList = () => {
     }, [] );
 
     return <>
-        <h1>ProductList</h1>
-        { products.map( ( product ) => {
-            return (
-                <div className="product-card" key={ product.id }>
-                    <h2 className="product-title">{ product.title }</h2>
-                    <p className="product-price">{ product.price }</p>
-                </div>
-            );
-        } ) }
+        <DataGrid
+            dataSource={ products }
+            keyExpr="id"
+            showBorders={ true }
+        >
+            <Column dataField="title" caption="Title"></Column>
+            <Column dataField="price" caption="Price" format={ priceFormat }></Column>
+            <Column dataField="discountPercentage" caption="Discount %"></Column>
+            <Column dataField="rating" caption="Rating"></Column>
+            <Column dataField="stock" caption="Stock"></Column>
+        </DataGrid>
     </>
 }
