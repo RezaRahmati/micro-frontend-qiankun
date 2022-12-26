@@ -4,9 +4,11 @@
   "description": "https://pc-technology.atlassian.net/wiki/spaces/PCFENG/pages/6408110187/Micro+Frontend+PoC",
   "scripts": {
     "install": "npm-run-all --serial install:*",
+    "install:backend": "cd backend && npm install",
     "install:shell": "cd shell && npm install",
     "install:product": "cd product && npm install",
     "start": "npm-run-all --parallel start:*",
+    "start:backend": "cd backend && npm start",
     "start:shell": "cd shell && npm start",
     "start:product": "cd product && npm start"
   },

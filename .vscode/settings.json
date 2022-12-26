@@ -5,7 +5,10 @@
         "source.fixAll.eslint": true,
         "source.fixAll": true
     },
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
     "cSpell.words": [
+        "nestjs",
         "qiankun"
     ],
 }
