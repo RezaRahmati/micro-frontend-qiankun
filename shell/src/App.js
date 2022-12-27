@@ -1,7 +1,7 @@
 import 'devextreme/dist/css/dx.material.orange.light.css';
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { BrowserRouter, NavLink } from "react-router-dom";
 import increment from "./actions/counter";
 import "./App.css";
 
@@ -12,7 +12,7 @@ function App ( props ) {
   const dispatch = useDispatch();
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className="header">
         <NavLink exact="true" to="/" className={ ( { isActive } ) => isActive ? "active-link link" : 'link' } >
           Home-Page
@@ -46,7 +46,7 @@ function App ( props ) {
       </div>
 
       <div id="subapp-viewport"></div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
