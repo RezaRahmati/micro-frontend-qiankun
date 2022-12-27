@@ -7,7 +7,17 @@ const microApps = [
     // entry: "//micro-app1.netlify.app/",
     entry: "//localhost:3001/",
     container: "#subapp-viewport",
-    activeRule: "/product",
+    activeRule: "/product/list",
+    props: {
+      mainStore,
+    },
+  },
+  {
+    name: "product details", // app name registered
+    // entry: "//micro-app1.netlify.app/",
+    entry: "//localhost:3001/",
+    container: "#subapp-viewport",
+    activeRule: "/product/details",
     props: {
       mainStore,
     },

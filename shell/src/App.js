@@ -1,3 +1,4 @@
+import 'devextreme/dist/css/dx.material.orange.light.css';
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
@@ -18,7 +19,7 @@ function App ( props ) {
         </NavLink>
         <NavLink
           exact="true"
-          to="/product"
+          to="/product/list"
           className={ ( { isActive } ) => isActive ? "active-link link" : 'link' }
         >
           Product

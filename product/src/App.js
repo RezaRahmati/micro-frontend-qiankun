@@ -1,18 +1,25 @@
 import 'devextreme/dist/css/dx.material.orange.light.css';
 import React from "react";
-import { useSelector } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { Layout } from './layout/layout';
+import { ProductDetails } from './product-details/product-details';
 import { ProductList } from './product-list/product-list';
 
 const App = () => {
 
-  const Counter1 = useSelector( ( state ) => state.Counter1 );
   return (
-    <div className="app">
-      <h1>Product</h1>
-      <h2>Counter1:- { Counter1 }</h2>
-      <ProductList />
-    </div>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={ <Layout /> }>
+            <Route index element={ <ProductList /> } />
+            <Route path="product/list" element={ <ProductList /> } />
+            <Route path="product/details/:id" element={ <ProductDetails /> } />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 };
 
