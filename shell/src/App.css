@@ -10,10 +10,7 @@ li {
   cursor: pointer;
 }
 
-#subapp-viewport {
-  background-color: lightgrey;
-  height: 1000px;
-}
+#subapp-viewport {}
 
 .link {
   color: #0b3954;
