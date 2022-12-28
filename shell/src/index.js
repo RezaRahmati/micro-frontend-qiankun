@@ -1,4 +1,6 @@
-import { registerMicroApps, start } from "qiankun";
+import 'zone.js'; // for angular subapp
+
+import { initGlobalState, registerMicroApps, runAfterFirstMounted, setDefaultMountApp, start } from 'qiankun';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider } from "react-redux";
@@ -22,6 +24,42 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-registerMicroApps( microApps );
+registerMicroApps( microApps, {
+  beforeLoad: [
+    ( app ) => {
+      console.log( '[LifeCycle] before load %c%s', 'color: green;', app.name );
+    },
+  ],
+  beforeMount: [
+    ( app ) => {
+      console.log( '[LifeCycle] before mount %c%s', 'color: green;', app.name );
+    },
+  ],
+  afterUnmount: [
+    ( app ) => {
+      console.log( '[LifeCycle] after unmount %c%s', 'color: green;', app.name );
+    },
+  ],
+}, );
+
+const { onGlobalStateChange, setGlobalState } = initGlobalState( {
+  user: 'qiankun',
+} );
+
+
+onGlobalStateChange( ( value, prev ) => console.log( '[onGlobalStateChange - master]:', value, prev ) );
+
+setGlobalState( {
+  ignore: 'master',
+  user: {
+    name: 'master',
+  },
+} );
+
+setDefaultMountApp( '/product/list' );
 
 start();
+
+runAfterFirstMounted( () => {
+  console.log( '[MainApp] first app mounted' );
+} );

@@ -1,5 +1,4 @@
 import mainStore from "./store/store";
-// import incrementMicro2 from "./actions/counter2";
 
 const microApps = [
   {
