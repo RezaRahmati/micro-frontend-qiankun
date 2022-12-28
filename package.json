@@ -7,10 +7,12 @@
     "install:backend": "cd backend && npm install",
     "install:shell": "cd shell && npm install",
     "install:product": "cd product && npm install",
+    "install:sales": "cd sales && npm install",
     "start": "npm-run-all --parallel start:*",
     "start:backend": "cd backend && npm start",
     "start:shell": "cd shell && npm start",
-    "start:product": "cd product && npm start"
+    "start:product": "cd product && npm start",
+    "start:sales": "cd product && npm start"
   },
   "author": "Reza.Rahmati@pcbank.ca",
   "license": "ISC",

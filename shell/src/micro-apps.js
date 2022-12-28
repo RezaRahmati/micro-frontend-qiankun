@@ -22,17 +22,16 @@ const microApps = [
       mainStore,
     },
   },
-  //   {
-  //     name: "micro-react2", // app name registered
-  //     // entry: "//micro-app2.netlify.app/",
-  //     entry: "//localhost:3002/",
-  //     container: "#subapp-viewport",
-  //     activeRule: "/micro-react2",
-  //     props: {
-  //       mainstore,
-  //       incrementMicro2,
-  //     },
-  //   },
+  {
+    name: "sales", // app name registered
+    // entry: "//micro-app2.netlify.app/",
+    entry: "//localhost:3002/",
+    container: "#subapp-viewport",
+    activeRule: "/sales",
+    props: {
+      mainStore
+    },
+  },
 ];
 
 export default microApps;
