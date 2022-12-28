@@ -1,15 +1,14 @@
 import 'devextreme/dist/css/dx.material.orange.light.css';
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, NavLink } from "react-router-dom";
-import increment from "./actions/counter";
 import "./App.css";
 
 function App ( props ) {
-  const Counter1 = useSelector( ( state ) => state.Counter1 );
-  const Counter2 = useSelector( ( state ) => state.Counter2 );
+  // const Counter1 = useSelector( ( state ) => state.Counter1 );
+  // const Counter2 = useSelector( ( state ) => state.Counter2 );
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   return (
     <BrowserRouter>
@@ -24,15 +23,15 @@ function App ( props ) {
         >
           Product
         </NavLink>
-        {/* <NavLink
+        <NavLink
           exact="true"
           to="/sales"
-          className={({ isActive }) => isActive? "active-link link": 'link'}
+          className={ ( { isActive } ) => isActive ? "active-link link" : 'link' }
         >
-          Sub-react2
-        </NavLink> */}
+          Sales
+        </NavLink>
       </div>
-      <div className="content">
+      {/* <div className="content">
         <p>Passing counter to micro app1(Counter1) : { Counter1 }</p>
         <button
           onClick={ () => {
@@ -43,7 +42,7 @@ function App ( props ) {
         </button>
 
         <p> counter getting changed by micro app2 (Counter2) : { Counter2 }</p>
-      </div>
+      </div> */}
 
       <div id="subapp-viewport"></div>
     </BrowserRouter>
