@@ -1,14 +1,25 @@
 import 'devextreme/dist/css/dx.material.orange.light.css';
 import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, NavLink } from "react-router-dom";
+import clearUser from './actions/clear-user';
+import setUser from './actions/set-user';
 import "./App.css";
 
 function App ( props ) {
-  // const Counter1 = useSelector( ( state ) => state.Counter1 );
-  // const Counter2 = useSelector( ( state ) => state.Counter2 );
+  const user = useSelector( ( state ) => state.user );
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  function dispatchLogin () {
+    console.log( 'dispatch setUser' )
+    dispatch( setUser( { name: 'Reza' } ) )
+  }
+
+  function dispatchLogout () {
+    console.log( 'dispatch clearUser' )
+    dispatch( clearUser() )
+  }
 
   return (
     <BrowserRouter>
@@ -30,19 +41,12 @@ function App ( props ) {
         >
           Sales
         </NavLink>
+        { user?.name ? <>
+          <button className='link' onClick={ dispatchLogout }>Logout&nbsp;{ user.name }</button>
+        </> :
+          <button className='link' onClick={ dispatchLogin }>Login</button>
+        }
       </div>
-      {/* <div className="content">
-        <p>Passing counter to micro app1(Counter1) : { Counter1 }</p>
-        <button
-          onClick={ () => {
-            dispatch( increment() );
-          } }
-        >
-          increment - Counter1
-        </button>
-
-        <p> counter getting changed by micro app2 (Counter2) : { Counter2 }</p>
-      </div> */}
 
       <div id="subapp-viewport"></div>
     </BrowserRouter>

@@ -1,9 +1,11 @@
 
 import { Column, DataGrid, GroupPanel, HeaderFilter, Pager, Paging, SearchPanel } from 'devextreme-react/data-grid';
 import React, { useEffect, useState } from 'react';
+import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 
 export const ProductList = () => {
+    const user = useSelector( ( state ) => state.user );
     const priceFormat = { style: 'currency', currency: 'CAD', useGrouping: true, minimumSignificantDigits: 3 };
 
     const [ products, setProducts ] = useState( [] );
@@ -52,5 +54,7 @@ export const ProductList = () => {
             <Column dataField="rating" caption="Rating"></Column>
             <Column dataField="stock" caption="Stock"></Column>
         </DataGrid>
+
+        { user && user.name }
     </>
 }
