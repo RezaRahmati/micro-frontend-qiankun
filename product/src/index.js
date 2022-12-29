@@ -10,9 +10,7 @@ let root = null;
 
 const microStore = createStore(
   (
-    state = {
-      Counter1: "Counter1 will show up when we integrate with main app",
-    }
+    state = {}
   ) => {
     return state;
   }
