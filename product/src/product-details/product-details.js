@@ -1,8 +1,9 @@
+import './product-details.css';
+
 import { Button } from 'devextreme-react/button';
 import Gallery from 'devextreme-react/gallery';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import './product-details.css';
 
 export const ProductDetails = () => {
     const { id } = useParams();

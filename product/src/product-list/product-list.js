@@ -1,4 +1,6 @@
 
+import './product-list.css';
+
 import { Column, DataGrid, GroupPanel, HeaderFilter, Pager, Paging, SearchPanel } from 'devextreme-react/data-grid';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from "react-redux";
@@ -26,7 +28,7 @@ export const ProductList = () => {
     }
 
 
-    return <>
+    return <section className='product-list'>
         <DataGrid
             dataSource={ products }
             keyExpr="id"
@@ -56,5 +58,5 @@ export const ProductList = () => {
         </DataGrid>
 
         { user && user.name }
-    </>
+    </section>
 }
