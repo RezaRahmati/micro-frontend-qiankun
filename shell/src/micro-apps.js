@@ -26,7 +26,7 @@ const microApps = [
     // entry: "//micro-app2.netlify.app/",
     entry: "//localhost:3002/",
     container: "#subapp-viewport",
-    activeRule: "/sales",
+    activeRule: "/sales/",
     props: {
       mainStore
     },

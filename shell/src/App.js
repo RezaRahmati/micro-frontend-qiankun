@@ -36,7 +36,7 @@ function App ( props ) {
         </NavLink>
         <NavLink
           exact="true"
-          to="/sales"
+          to="/sales/list"
           className={ ( { isActive } ) => isActive ? "active-link link" : 'link' }
         >
           Sales
